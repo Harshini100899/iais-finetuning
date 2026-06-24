@@ -1,0 +1,26 @@
+# Training configuration for Text2Cypher LoRA fine-tuning.
+
+epochs: 5
+lr: 0.0002
+batch_size: 4
+grad_accum: 4
+rank: 16
+dropout: 0.05
+weight_decay: 0.01
+max_length: 1024
+seed: 42
+num_threads: null
+checkpoint_dir: checkpoints_v2_few
+overfit_check: false
+
+# Experiment tracking is optional. Set use_mlflow: false to run without it, or
+# install it with: uv sync --extra tracking
+use_mlflow: true
+mlflow_tracking_uri: sqlite:///mlflow.db
+
+# System prompt used to build training examples:
+#   default  - plain instruction-only system prompt (config.SYSTEM_PROMPT)
+#   fewshot  - explicit Cypher rules + 3 few-shot examples (config.SYSTEM_PROMPT_FEWSHOT)
+prompt_variant: fewshot
+
+mlflow_experiment: text2cypher-with-prompts #text2cypher-finetuning

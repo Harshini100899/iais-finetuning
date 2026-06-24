@@ -1,0 +1,19 @@
+# Evaluation configuration for Text2Cypher checkpoints.
+
+
+checkpoint: checkpoints_v2_few/best
+split: test
+output_dir: results
+max_new_tokens: 256
+beams: 1
+max_samples: null
+num_threads: null
+verbose: false
+print_samples: 5
+prompt_variant: fewshot
+
+# Experiment tracking is optional. Set use_mlflow: false to run without it, or
+# install it with: uv sync --extra tracking
+use_mlflow: true
+mlflow_tracking_uri: sqlite:///mlflow.db
+mlflow_experiment: text2cypher-with-prompts
